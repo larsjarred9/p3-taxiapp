@@ -9,8 +9,8 @@ class SearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
+        // Get search input from MainActivity (intent) and set it to the SearchText TextView
         val searchinput = intent.getStringExtra("search")
-
         val searchtext : TextView = findViewById(R.id.SearchText)
 
         searchtext.text = searchinput

@@ -11,9 +11,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Search input and button
         val searchinput : TextView = findViewById(R.id.SearchInput)
         val searchbutton : Button = findViewById(R.id.SearchBtn)
 
+
+        // Search button on click -> Intent to SearchActivity
         searchbutton.setOnClickListener {
             val intent = Intent(this, SearchActivity::class.java)
             intent.putExtra("search", searchinput.text.toString())
