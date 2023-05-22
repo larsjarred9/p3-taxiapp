@@ -36,12 +36,27 @@
         android:layout_height="58dp"
         android:ems="10"
         android:inputType="textAutoCorrect"
-        android:text="Zoeken...."
+        android:text=""
+        android:hint="Zoeken..."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.092"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.023" />
+
+    <FrameLayout
+        android:id="@+id/FragmentLayout"
+        android:layout_width="409dp"
+        android:layout_height="641dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar">
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
