@@ -1,18 +1,21 @@
 package com.example.taxibedrijf.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.taxibedrijf.R
+import com.example.taxibedrijf.content.Car
+import com.example.taxibedrijf.content.CarAdapter
 import org.json.JSONArray
-import org.json.JSONObject
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), AdapterView.OnItemClickListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -20,6 +23,8 @@ class HomeFragment : Fragment() {
 
         // inflate the layout for this fragment
         var view: View = inflater.inflate(R.layout.fragment_home, container, false)
+
+        var lv: ListView = view.findViewById(R.id.ListView)
 
         // set url for the api call
         val url = "https://opendata.rdw.nl/resource/m9d7-ebf2.json"
@@ -33,8 +38,10 @@ class HomeFragment : Fragment() {
             { response ->
                 val jsonArray = JSONArray(response)
 
+                val carsArray = mutableListOf<Car>()
 
-                // Krijg de eerste 50 auto's uit de api
+
+                // Get the first 50 cars out of the array
                 for (i in 0 until 50) {
                     val carObject = jsonArray.getJSONObject(i)
                     val kenteken = carObject.optString("kenteken", "Unknown")
@@ -46,7 +53,18 @@ class HomeFragment : Fragment() {
                     println("Merk: $merk")
                     println("Datum Tenaamstelling: $datumTenaamstelling")
                     println()
+
+                    val car = Car(kenteken, merk, datumTenaamstelling)
+                    carsArray.add(car)
                 }
+
+
+                // Create a new car object
+                var ad = CarAdapter(view.context, carsArray)
+
+                // Asign click listener to the listview
+                lv.onItemClickListener = this
+                lv.adapter = ad
             },
             { error ->
                 println(error)
@@ -57,10 +75,14 @@ class HomeFragment : Fragment() {
         requestQueue.add(stringRequest)
 
         // return the view
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        return view;
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        // TODO("Not yet implemented")
     }
 }
