@@ -11,6 +11,19 @@
         android:layout_height="match_parent">
 
         <TextView
+            android:id="@+id/kentekenField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kenteken"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.151" />
+
+        <TextView
             android:id="@+id/kenteken"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,16 +36,29 @@
             app:layout_constraintVertical_bias="0.196" />
 
         <TextView
+            android:id="@+id/merkField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Merk"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.294" />
+
+        <TextView
             android:id="@+id/merk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.261" />
+            app:layout_constraintVertical_bias="0.338" />
 
         <TextView
             android:id="@+id/tenaamstelling"
@@ -44,6 +70,18 @@
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.327" />
+            app:layout_constraintVertical_bias="0.466" />
+
+        <TextView
+            android:id="@+id/tenaamstellingField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Datum Tenaamstelling"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.419" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
