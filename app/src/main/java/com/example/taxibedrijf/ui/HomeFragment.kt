@@ -82,7 +82,29 @@ class HomeFragment : Fragment(), AdapterView.OnItemClickListener {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        // TODO("Not yet implemented")
+    override fun onItemClick(parent: AdapterView<*>?, p1: View?, position: Int, p3: Long) {
+        // Get the car object from the listview
+        val car: Car = parent?.getItemAtPosition(position) as Car
+
+        // Create a bundle to pass data to the next fragment
+        val bundle = Bundle()
+        bundle.putString("kenteken", car.kenteken)
+        bundle.putString("merk", car.merk)
+        bundle.putString("datumTenaamstelling", car.datumTenaamstelling)
+
+        // Create a new CarFragment and pass the bundle to it
+        val carFragment = CarFragment()
+        carFragment.arguments = bundle
+
+        // Get the FragmentManager
+        val fragmentManager = requireActivity().supportFragmentManager
+
+        // Replace the current fragment with the CarFragment
+        fragmentManager.beginTransaction()
+            .replace(R.id.FragmentLayout, carFragment)
+            .addToBackStack(null)
+            .commit()
     }
+
+
 }
